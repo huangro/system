@@ -49,7 +49,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -68,7 +68,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'monitor',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': ''
     }
@@ -93,7 +93,9 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+MAIL_INFO = {
+    'host': 'smtp.exmail.qq.com',
+    'user': 'monitor@zhiping.tv',
+    'pwd': 'Rcaproject78'
+}
 
-MAIL_HOST = "smtp.exmail.qq.com"
-MAIL_USER = "monitor@zhiping.tv"
-MAIL_PASS = "Rcaproject78"
