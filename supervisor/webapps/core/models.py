@@ -23,7 +23,7 @@ class ServicePlatform(models.Model):
     mail_list = models.TextField(_('mail_list'), blank=True, null=True)
     frequency = models.CharField(_('frequecy'), max_length=128, blank=True, null=True)
     created_at = models.DateTimeField(_('created_at'), default='0000-00-00 00:00:00')
-    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True, auto_now=True)
+    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True)
 
     class Meta:
         db_table = 'service_platform'
@@ -74,17 +74,17 @@ class ControlPoint(models.Model):
     """
     ControlPoint class
     """
-    sid = models.IntegerField(_('sid'), max_length=11)
+    sid = models.IntegerField(_('sid'))
     title = models.CharField(_('title'), max_length=128)
     slot = models.CharField(_('slot'), max_length=64, db_index=True)
     url = models.CharField(_('url'), max_length=255, blank=True, null=True)
     description = models.CharField(_('description'), max_length=255, blank=True, null=True)
     match_point = models.CharField(_('match_point'), max_length=255, blank=True, null=True)
-    interval = models.IntegerField(_('interval'), max_length=11, default=300)
+    interval = models.IntegerField(_('interval'), default=300)
     tag = models.CharField(_('tag'), max_length=255, blank=True, null=True)
     status = models.BooleanField(_('status'), default=False)
     created_at = models.DateTimeField(_('created_at'), default='0000-00-00 00:00:00')
-    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True, auto_now=True)
+    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True)
 
     class Meta:
         db_table = 'control_point'
@@ -124,7 +124,7 @@ class HeartBeat(models.Model):
     """
     HeartBeat class
     """
-    cid = models.IntegerField(_('cid'), max_length=11, db_index=True)
+    cid = models.IntegerField(_('cid'), db_index=True)
     slot = models.CharField(_('slot'), max_length=64)
     content = models.CharField(_('content'), max_length=255, blank=True, null=True)
     tag = models.CharField(_('tag'), max_length=255, blank=True, null=True)
@@ -132,7 +132,7 @@ class HeartBeat(models.Model):
     has_error = models.BooleanField(_('has_error'), default=False)
     status = models.BooleanField(_('status'), default=True)
     created_at = models.DateTimeField(_('created_at'))
-    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True, auto_now=True)
+    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True)
 
     class Meta:
         db_table = 'heart_beat'
@@ -189,13 +189,11 @@ class ErrorPicker(models.Model):
     """
     DailyStatistics class
     """
-    sid = models.IntegerField(_('sid'), max_length=11)
-    cid = models.IntegerField(_('cid'), max_length=11)
+    sid = models.IntegerField(_('sid'))
+    cid = models.IntegerField(_('cid'))
     content = models.TextField(_('content'), blank=True, null=True)
     created_at = models.DateTimeField(_('created_at'))
-    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True, auto_now=True)
-
-
+    updated_at = models.DateTimeField(_('updated_at'), auto_now_add=True)
 
     class Meta:
         db_table = 'error_picker'

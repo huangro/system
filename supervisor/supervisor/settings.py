@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'core',
     'gateway',
     'utils',
-    'monitor',
+    'monitor', 
+    'gunicorn'
 )
 
 MIDDLEWARE_CLASSES = (
